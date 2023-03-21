@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Liste des salariés</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1>La liste des salariés</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prénom</th>
+				<th scope="col">Email</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="salarie : ${ listeS }" th:with="idS=${salarie.id}">
+				<th scope="row" th:text="'Id :' + ${ idS } "></th>
+				<td th:text="'Nom :' + ${ salarie.nom } "></td>
+				<td th:text="'Prénom :' + ${ salarie.prenom } "></td>
+				<td th:text="'Email :' + ${ salarie.email } "></td>
+				<td>
+					<a th:href="'delete/' + ${idS} "><button type="button" class="btn btn-outline-danger">Supprimer</button></a> 						
+					<a th:href="'update/' + ${idS} "><button type="button" class="btn btn-info">Modifier</button></a>
+			  </td>
+			</tr>
+
+
+		</tbody>
+
+	</table>
+</body>
+</html>
