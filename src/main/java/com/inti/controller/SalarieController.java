@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.inti.model.Salarie;
 import com.inti.repository.ISalarieRepository;
-
+//Class controller
 @Controller
-
 public class SalarieController {
 	@Autowired
 	ISalarieRepository isr;
